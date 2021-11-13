@@ -1,0 +1,244 @@
+
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Fusion Tuition Centre</title>
+    <meta name="description" content="Fusion Tuition Centre">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../../backend/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../backend/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../backend/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="../../backend/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="../../backend/vendors/selectFX/css/cs-skin-elastic.css">
+
+    <link rel="stylesheet" href="../../backend/assets/css/style.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+
+
+</head>
+<body>
+<%-include ('../partials/sidebar')%>
+<div id="right-panel" class="right-panel">
+    <!-- Header-->
+     <header id="header" class="header">
+
+        <div class="header-menu">
+
+            <div class="col-sm-7">
+                <!-- <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a> -->
+                <div class="header-left">
+                    
+                </div>
+            </div>
+
+            <div class="col-sm-5">
+                <div class="user-area dropdown float-right">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class=" menu-icon fa fa-user" aria-hidden="true"></i> Admin
+                    </a>
+
+                   
+                </div>
+
+               
+
+            </div>
+        </div>
+
+    </header>
+    <div class="breadcrumbs">
+        <div class="col-sm-4">
+            <div class="page-header float-left">
+                <div class="page-title">
+                    <h1>Inquiry</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="page-header float-right">
+                <div class="page-title">
+                    <ol class="breadcrumb text-right">
+                        <li class="active">Inquiry form</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row ">
+                <div class="col-md-6 offset-2 col-lg-6 offset-lg-3 div-wrapper justify-content-center align-items-center">
+
+                    <div class="div-to-align">
+            
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title"> Student Inquiry</strong>
+                        </div>
+                        <div class="card-body">
+                    <form class="" method="post" action="/submit" id="form" onsubmit="return validate();" > 
+                    <div class="form-group">
+                        
+                        <label for="Students_name" class="form-label">Students Name <span class = "text-danger" >*</label>
+                        <input type="text" class="form-control" name="StudentsName" id="StudentsName">
+                        <p class="text-danger" id="name-error"></p> 
+                        
+                    </div>
+                    <div class="form-group">
+                        
+                        <label for="address" class="form-label">Address <span class = "text-danger" >*</label>
+                        <input type="text" class="form-control" name="address" placeholder="enter a address" id="address">
+                        <p class="text-danger" id="address-error"></p> 
+                        
+                    </div>
+                        <div class="form-group">
+                             <label for="inputClass" class="form-label">Enter a Class <span class = "text-danger" >*</label>
+                            <select name="inputClass" id="inputClass" class="form-select form-control" class="required">
+                    <option selected disabled value="">Class</option>
+                    <%classData.forEach((c)=>{%>
+                      <option value="<%=c.id%>" ><%=c.name%></option>
+                    <%})%>
+                  </select>
+                  <p class="text-danger" id="classData-error"></p> 
+                  
+                        </div>
+                            <div class="form-group">
+                                
+                                <label for="subject" class="form-label">Subject Name <span class = "text-danger" >*</label>
+                                <select name="subject" id="subject" class="form-select form-control" class="required">
+                          <option selected disabled value="">Subject</option>
+                          <%resu.forEach((s)=>{%>
+                            <option value="<%=s.subject_id%>"><%=s.subject_name%></option>
+                
+                          <%})%>
+                             </select>
+                             <p class="text-danger" id="subject-error"></p> 
+                             
+                              </div>
+                              <div class="form-group">
+                                <label for="phoneNumber" class="form-label">Contact Number <span class = "text-danger" >*</label>
+                                 <input type="number" class="form-control" name="phoneNumber" placeholder="Contact Number"  id="phoneNumber">
+                                 <p class="text-danger" id="contact-error"></p> 
+                                
+                              </div>
+                              <div class="form-group">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="enroll">
+                                <label class="Enroll" for="gridCheck">
+                                     Enroll
+                                 </label>
+                            </div>
+                        </div>
+                              <div class="card-footer">
+                                <button type="submit" class="btn btn-success btn-sm">
+                                     Add
+                                </button>
+                                <!-- <button type="reset" class="btn btn-danger btn-sm">
+                                     Reset
+                                </button> -->
+                            </div>
+                </form>
+                                   
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+</div> <!-- .content -->
+</div><!-- /#right-panel -->
+</div>
+</div>
+</div>
+</div>
+</div><!-- .animated -->
+</div><!-- .content -->
+</div><!-- /#right-panel -->
+<!-- Right Panel -->
+
+<script>
+// const form =  document.getElementById('form')
+// form.addEventListener('submit',(event)=>{
+// //console.log(event)
+// })
+    function validate(){
+        
+    
+        var name = document.getElementById('StudentsName').value.trim()
+        var address = document.getElementById('address').value.trim()
+        var classData = document.getElementById('inputClass').value
+        var subject = document.getElementById('subject').value
+        var contact = document.getElementById('phoneNumber').value.trim()
+const formData = {
+    name, address, classData, subject, contact
+}
+
+
+
+const value = Object.values(formData).map((item, index) => {
+              if (item == "") {
+                const data = Object.keys(formData)[index];
+                console.log(data);
+                document.getElementById(`${data}-error`).innerHTML = `**required ${data}`;
+
+                return false;
+              } else {
+                const data = Object.keys(formData)[index];
+
+                if (data === "name") {
+                  if (!isNaN(item)) {
+                    document.getElementById(
+                      `${data}-error`
+                    ).innerHTML = `**invalid ${data}`;
+
+                    return false;
+                  } else {
+                    document.getElementById(`${data}-error`).innerHTML = ``;
+                  }
+                } else if (data === "contact") {
+                  if (item.length < 9 || item.length < 10) {
+                    document.getElementById(`${data}-error`).innerHTML = `**Invalid ${data}`;
+                    return false;
+                  } else {
+                    document.getElementById(`${data}-error`).innerHTML = ``;
+                  }
+                } else {
+                  document.getElementById(`${data}-error`).innerHTML = ``;
+                }
+              }
+            });
+
+            const bool = value.includes(false);
+            console.warn(bool);
+            if (bool) {
+              return false;
+            } else {
+              return true;
+            }
+    }
+</script>
+
+<script src="../../backend/vendors/jquery/dist/jquery.min.js"></script>
+<script src="../../backend/vendors/popper.js/dist/umd/popper.min.js"></script>
+
+<script src="../../backend/vendors/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="../../backend/vendors/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+
+<script src="../../backend/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../backend/assets/js/main.js"></script>
+</body>
+</html>

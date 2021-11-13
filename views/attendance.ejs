@@ -1,0 +1,190 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Fusion Tuition Centre</title>
+    <meta name="description" content="Fusion Tuition Centre">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../backend/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../backend/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../backend/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="../backend/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="../backend/vendors/selectFX/css/cs-skin-elastic.css">
+
+    <link rel="stylesheet" href="../backend/assets/css/style.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+
+
+</head>
+<body>
+<%-include ('partials/sidebar')%>
+<div id="right-panel" class="right-panel">
+    <!-- Header-->
+     <header id="header" class="header">
+
+        <div class="header-menu">
+
+            <div class="col-sm-7">
+                <!-- <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a> -->
+                <div class="header-left">
+                    
+                </div>
+            </div>
+
+            <div class="col-sm-5">
+                <div class="user-area dropdown float-right">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class=" menu-icon fa fa-user" aria-hidden="true"></i> Admin
+                    </a>
+
+                   
+                </div>
+
+               
+
+            </div>
+        </div>
+
+    </header>
+    <div class="breadcrumbs">
+        <div class="col-sm-4">
+            <div class="page-header float-left">
+                <div class="page-title">
+                    <h1>Attendance</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="page-header float-right">
+                <div class="page-title">
+                    <ol class="breadcrumb text-right">
+                        <li class="active">Attendance</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row ">
+                <div class="col-lg-12 ">
+
+                    <div class="div-to-align">
+            
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">View Attendance</strong>
+                        </div>
+                        <div class="card-body">
+                    
+                       <form class="">
+                    <div class="form-group">
+                        
+                        <input type="text" name="date" value="<%=dateRecord%>">
+                       
+                        <input type="text" hidden name="student_id" value="<%=studentRecords%>">
+                        <input type="text" hidden name="class_id" value="<%=classRecords%>">
+                    </div> 
+                    <%if(message!=0){%>      
+                        <div class="alert alert-danger" role="alert">
+                             <%=message%> 
+                         </div>
+                          <%}%>
+                         
+
+
+                                    <div class="content mt-3">
+                                        <div class="animated fadeIn">
+                                            <div class="row">
+                                               
+                                                <div class="col-md-12">
+                                                    <div class="card">
+                                                        <div class="card-header">
+                                                            <strong class="card-title">Attendance </strong>
+                                                        </div>
+                                                        <div class="card-body">
+                                                           
+                                                               
+                                                               
+                                                            <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                                                
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th scope="col">SN</th>
+                                                                        
+                                                                        <th scope="col">students_name</th>
+                                                                        <th scope="col">Actions</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <%viewRecords.forEach((d,i)=>{%>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <%=i+1%>
+                                                                            </td>
+                                                                           
+                                                                            <td>
+                                                                                
+                                                                                <%=d.students_name%>
+                                                                            </td>
+                                                                            <td>
+                                                                                
+                                                                                       <%if(d.attendance=='1'){%>
+                                                                                           <input class="form-check-input" type="checkbox" name="students" value="<%=d.student_id%>"  checked >
+                                                                                       <%}else{%>
+                                                                                            <input class="form-check-input" type="checkbox" name="students" value="<%=d.student_id%>" >
+                                                                                            <%}%>
+                                                                                        <label class="form-check-label"></label>
+                                                                                        Present
+                                                                                       </label>
+                                                                                       
+                                                                                       
+                                                                                    
+                                                                            </td>
+                                                                            <%})%>
+                                                                           
+                                                                            </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                </form>
+                                                      
+                                   
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            
+                </div> <!-- .content -->
+            </div><!-- /#right-panel -->
+            
+            
+            
+            <script src="../backend/vendors/jquery/dist/jquery.min.js"></script>
+            <script src="../backend/vendors/popper.js/dist/umd/popper.min.js"></script>
+            
+            <script src="../backend/vendors/jquery-validation/dist/jquery.validate.min.js"></script>
+            <script src="../backend/vendors/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+            
+            <script src="../backend/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+            <script src="../backend/assets/js/main.js"></script>
+            </body>
+            </html>

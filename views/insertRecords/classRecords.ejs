@@ -1,0 +1,229 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Fusion Tuition Centre</title>
+    <meta name="description" content="Fusion Tuition Centre">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../../backend/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../backend/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../backend/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="../../backend/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="../../backend/vendors/selectFX/css/cs-skin-elastic.css">
+
+    <link rel="stylesheet" href="../../backend/assets/css/style.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+
+
+</head>
+<body>
+<%-include ('../partials/sidebar')%>
+<div id="right-panel" class="right-panel">
+    <!-- Header-->
+     <header id="header" class="header">
+
+        <div class="header-menu">
+
+            <div class="col-sm-7">
+                <!-- <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a> -->
+                <div class="header-left">
+                    
+                </div>
+            </div>
+
+            <div class="col-sm-5">
+                <div class="user-area dropdown float-right">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class=" menu-icon fa fa-user" aria-hidden="true"></i> Admin
+                    </a>
+
+                    <div class="user-menu dropdown-menu">
+                        <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
+
+                        <a class="nav-link" href="#"><i class="fa fa-user"></i> Notifications <span class="count">13</span></a>
+
+                        <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
+
+                        <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
+                    </div>
+                </div>
+
+               
+
+            </div>
+        </div>
+
+    </header>
+    <div class="breadcrumbs">
+        <div class="col-sm-4">
+            <div class="page-header float-left">
+                <div class="page-title">
+                    <h1>Class</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="page-header float-right">
+                <div class="page-title">
+                    <ol class="breadcrumb text-right">
+                        <li class="active">class </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row ">
+                <div class="col-md-6 offset-2 col-lg-6 offset-lg-3 div-wrapper justify-content-center align-items-center">
+
+                    <div class="div-to-align">
+            
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">class </strong>
+                        </div>
+                        <div class="card-body">
+                           
+                    <form class="" method="post" action="/submitClass" onsubmit="return validate()">
+                    <div class="form-group">                        
+                        <label for="className" class="form-label"> CLASS <span class = "text-danger" >* </label>
+                        <select id="className" name="className" class="form-control">
+                        <option selected disabled value ="">Select Class</option>
+                        <%classData.forEach((c)=>{%>
+                        <option value="<%=c.id%>"><%=c.name%></option>
+
+                        <%})%>
+                        </select>
+                        <p class="text-danger" id="name-error"></p>
+                        </div>
+                    
+                    
+                    <div class="form-group">
+                        <label for="sectionName" class="form-label">Section Name <span class = "text-danger" >*</label>
+                        <input type="text" id ="sectionName" name="name" class="form-control" >
+                        <p class="text-danger" id="section-error"></p>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="teacher" class="form-label">Teacher <span class = "text-danger" >*</label>
+                        <select id="teacher" name="teacher" class=" form-control" class = "required">
+                        <option selected disabled value ="">Select Teacher</option>
+                        <%teacherData.forEach((t)=>{%>
+                        <option value="<%=t.teacher_id%>"><%=t.teachers_name%></option>
+                        <%  })%>
+                           
+                        </select>
+                        <p class="text-danger" id="tName-error"></p>
+                    </div>
+                    
+                    
+                    <div class="form-group">
+                     <label for="subjectName" class="form-label">Choose Subject <span class = "text-danger" >*</label>
+                    <select  id="subject" name="subject" class="form-control" class = "required">
+                    <option selected disabled value ="">Subject</option>
+                    <%subjectData.forEach((t)=>{%>
+                    <option value="<%=t.subject_id%>"><%=t.subject_name%></option>
+                    <%  })%>
+                     </select>
+                     <p class="text-danger" id="sName-error"></p>
+                    </div>
+                    
+                    <div class="form-group">
+                                
+                                <label for="time" class="form-label">Time <span class = "text-danger" >*</label>
+                                <input type="text" id="time" name="time"  class="form-control"  >
+                                <p class="text-danger" id="timeValue-error"></p>
+                     </div>
+                          <div class="form-group">
+                            <label for="capacity" class="form-label">Student Capacity <span class = "text-danger" >*</label>
+                                <input type="text" id="capacity" name="capacity"  class="form-control" >
+                                 <p class="text-danger" id="totalCapacity-error"></p>
+                          </div>   
+                              
+                     <div class="card-footer">
+                                <button type="submit" class="btn btn-success btn-sm">
+                                     Add
+                                </button>
+                                <!-- <button type="reset" class="btn btn-danger btn-sm">
+                                     Reset
+                                </button> -->
+                     </div>
+                    </form>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        
+            </div> <!-- .content -->
+        </div><!-- /#right-panel -->
+        </div>
+        </div>
+        </div>
+        </div>
+        </div><!-- .animated -->
+        </div><!-- .content -->
+        </div><!-- /#right-panel -->
+        <!-- Right Panel -->
+        <script>
+            function validate(){
+                var name = document.getElementById('className').value
+                var section = document.getElementById('sectionName').value.trim()
+                var tName = document.getElementById('teacher').value
+                var sName = document.getElementById('subject').value
+                var timeValue = document.getElementById('time').value.trim()
+                var totalCapacity = document.getElementById('capacity').value.trim()
+                const formData = {
+    name, section,tName,sName,timeValue,totalCapacity
+}
+const value = Object.values(formData).map((item, index) => {
+              if (item =="") {
+                const data = Object.keys(formData)[index];
+                console.log(data);
+                document.getElementById(`${data}-error`).innerHTML = `**required ${data}`;
+
+                return false;
+              } else {
+                const data = Object.keys(formData)[index];
+           
+              }
+            });
+
+            const bool = value.includes(false);
+            console.warn(bool);
+            if (bool) {
+              return false;
+            } else {
+              return true;
+            }
+    }
+            
+        </script>
+
+     
+        <script src="../../backend/vendors/jquery/dist/jquery.min.js"></script>
+        <script src="../../backend/vendors/popper.js/dist/umd/popper.min.js"></script>
+        
+        <script src="../../backend/vendors/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="../../backend/vendors/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+        
+        <script src="../../backend/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../../backend/assets/js/main.js"></script>
+        </body>
+        </html>
